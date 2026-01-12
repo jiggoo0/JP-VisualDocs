@@ -1,4 +1,8 @@
+/** @format */
+
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://your-name.vercel.app/sitemap.xml
+# เชื่อมโยงไปยัง Sitemap ของ JP-VISOUL-DOCS
+Sitemap: https://jp-visual-docs.vercel.app/sitemap.xml

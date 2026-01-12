@@ -1,111 +1,109 @@
 /** @format */
 
-import React from 'react';
+import React from "react";
 
 /**
- * [STRATEGY: SEARCH ENGINE AUTHORITY - VERIFIED]
- * - Type Safety: เปลี่ยนจาก 'any' เป็นการระบุโครงสร้างที่แน่นอนเพื่อแก้ปัญหา ESLint Build Error
- * - Entity Linking: เชื่อมโยงตัวตนผ่าน Schema.org เพื่อทำ Google Knowledge Graph
+ * [STRATEGY: SEARCH ENGINE AUTHORITY - JP-VISOUL-DOCS]
+ * - Entity Linking: เชื่อมโยงตัวตนเข้ากับบริการจัดการชื่อเสียงและลบข้อมูลบน Google
+ * - Trust Signals: ใช้ Schema เพื่อยืนยันความเชี่ยวชาญของทีม JP-VISOUL-DOCS
  */
 
 interface SchemaProps {
-  type?: 'Person' | 'HowTo';
-  // 🏛️ แก้ไขจาก any เป็น Record<string, unknown> เพื่อให้ผ่านกฎ ESLint
-  data?: Record<string, unknown>; 
+  type?: "Person" | "HowTo";
+  data?: Record<string, unknown>;
 }
 
-export default function Schema({ type = 'Person' }: SchemaProps) {
-  const siteUrl = "https://unlinkth-official.vercel.app";
-  const fullName = "นายตัวอย่าง Unlinkth";
-  const linkedinUrl = "https://www.linkedin.com/in/นายตัวอย่าง-unlinkth-4936623a5";
-  const mediumUrl = "https://medium.com/@unlinkth.example";
+export default function Schema({ type = "Person" }: SchemaProps) {
+  // 🌐 อัปเดตข้อมูลพื้นฐานเป็น JP-VISOUL-DOCS
+  const siteUrl = "https://jp-visual-docs.vercel.app";
+  const fullName = "JPVISOULDOCS Example";
+  const contactEmail = "jpvisouldocs.example@gmail.com";
 
-  // 1. Base Person & Professional Schema
+  // 1. Person & Organization Schema (เน้นความเป็นผู้เชี่ยวชาญด้าน ORM)
   const personSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Person",
         "@id": `${siteUrl}/#person`,
-        "name": fullName,
-        "url": siteUrl,
-        "image": {
+        name: fullName,
+        url: siteUrl,
+        email: contactEmail,
+        image: {
           "@type": "ImageObject",
-          "url": `${siteUrl}/images/profile-photo.jpg`,
-          "width": "600",
-          "height": "600"
+          url: `${siteUrl}/images/profile-photo.jpg`,
+          width: "600",
+          height: "600",
         },
-        "description": "ที่ปรึกษาด้านสถาปัตยกรรมทางเทคนิคและกลยุทธ์ SEO เชี่ยวชาญการจัดการชื่อเสียงออนไลน์และกู้คืนภาพลักษณ์ดิจิทัล",
-        "jobTitle": "Technical Architect & SEO Strategist",
-        "worksFor": {
+        description:
+          "ผู้เชี่ยวชาญด้านการจัดระเบียบข้อมูลตัวตนดิจิทัลและจัดการชื่อเสียงออนไลน์ (ORM) กู้คืนภาพลักษณ์และจัดการผลการค้นหาบน Google",
+        jobTitle: "Digital Identity & ORM Specialist",
+        worksFor: {
           "@type": "Organization",
           "@id": `${siteUrl}/#organization`,
-          "name": "Unlinkth Thailand",
-          "url": "https://unlinkth.com"
+          name: "JP-VISOUL-DOCS",
+          url: "https://jpvisouldocs.website",
         },
-        "sameAs": [
-          linkedinUrl,
-          mediumUrl,
-          "https://www.blockdit.com/unlinkth.example"
-        ],
-        "knowsAbout": [
-          "SEO Displacement",
+        knowsAbout: [
           "Online Reputation Management",
-          "Technical SEO Architecture",
-          "Digital Privacy",
-          "Identity Management"
-        ]
+          "Search Engine Optimization (SEO)",
+          "ลบข้อมูลบน Google",
+          "จัดการข่าวเสีย",
+          "แก้ไขข้อมูลบนโลกโซเชียล",
+          "Digital Privacy & Security",
+        ],
       },
       {
         "@type": "ProfessionalService",
-        "name": "Unlinkth Reputation Consulting",
-        "image": `${siteUrl}/images/profile-photo.jpg`,
+        name: "JP-VISOUL-DOCS Reputation Services",
+        image: `${siteUrl}/images/profile-photo.jpg`,
         "@id": `${siteUrl}/#service`,
-        "url": siteUrl,
-        "telephone": "",
-        "address": {
+        url: siteUrl,
+        telephone: "",
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Bangkok",
-          "addressLocality": "Bangkok",
-          "addressRegion": "BKK",
-          "postalCode": "10000",
-          "addressCountry": "TH"
+          streetAddress: "Bangkok",
+          addressLocality: "Bangkok",
+          addressRegion: "BKK",
+          postalCode: "10000",
+          addressCountry: "TH",
         },
-        "priceRange": "$$$",
-        "serviceType": "Technical SEO & Reputation Management"
-      }
-    ]
+        priceRange: "$$$",
+        serviceType: "Online Reputation Management & SEO",
+      },
+    ],
   };
 
-  // 2. HowTo Schema
+  // 2. HowTo Schema (ขั้นตอนการจัดการชื่อเสียงที่คนไทยเข้าใจง่าย)
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "3 ขั้นตอนการจัดการชื่อเสียงและ SEO Displacement โดย Unlinkth",
-    "description": "กระบวนการสร้างตัวตนดิจิทัลใหม่เพื่อเบียดแทนที่ผลการค้นหาที่ไม่ต้องการอย่างเป็นระบบ",
-    "step": [
+    name: "ขั้นตอนการจัดระเบียบข้อมูลและจัดการชื่อเสียงออนไลน์โดย JP-VISOUL-DOCS",
+    description:
+      "กระบวนการจัดการข้อมูลเสียและสร้างภาพลักษณ์ใหม่ที่ถูกต้องบนระบบการค้นหา",
+    step: [
       {
         "@type": "HowToStep",
-        "name": "Digital Identity Construction",
-        "text": "สร้างโครงสร้างเว็บไซต์และ Technical Foundation ที่แข็งแรงเพื่อให้ระบบค้นหาเชื่อถือข้อมูลใหม่",
-        "url": `${siteUrl}/case-study`
+        name: "Data Cleanup & Analysis",
+        text: "วิเคราะห์ข้อมูลที่ส่งผลเสียต่อชื่อเสียง เช่น ข่าวเก่า หรือกระทู้ Pantip เพื่อวางแผนจัดการอย่างถูกต้อง",
+        url: `${siteUrl}/case-study`,
       },
       {
         "@type": "HowToStep",
-        "name": "Entity Verification",
-        "text": "เชื่อมโยงตัวตนผ่าน Schema Markup, LinkedIn และ Medium Official เพื่อยืนยันว่าเป็นผู้เชี่ยวชาญตัวจริง",
-        "url": `${siteUrl}/case-study`
+        name: "Digital Identity Alignment",
+        text: "สร้างและจัดระเบียบข้อมูลตัวตนใหม่ผ่านเว็บไซต์ที่มีความน่าเชื่อถือสูง เพื่อยืนยันข้อมูลที่ถูกต้อง",
+        url: `${siteUrl}/case-study`,
       },
       {
         "@type": "HowToStep",
-        "name": "Search Engine Displacement",
-        "text": "เร่งการทำ Indexing และสร้างกระแส Traffic เพื่อดันข้อมูลบวกขึ้นแทนที่ข้อมูลด้านลบ",
-        "url": `${siteUrl}/case-study`
-      }
-    ]
+        name: "Search Result Optimization",
+        text: "ดันข้อมูลบวกที่จัดระเบียบแล้วให้ขึ้นหน้าแรก Google เพื่อเบียดแทนที่ข้อมูลที่ไม่ต้องการ",
+        url: `${siteUrl}/case-study`,
+      },
+    ],
   };
 
-  const finalSchema = type === 'HowTo' ? howToSchema : personSchema;
+  const finalSchema = type === "HowTo" ? howToSchema : personSchema;
 
   return (
     <script

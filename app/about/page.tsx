@@ -4,53 +4,62 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, UserCheck, MessageSquare, ArrowRight, Linkedin } from "lucide-react";
+import {
+  ShieldCheck,
+  UserCheck,
+  MessageSquare,
+  ArrowRight,
+  Mail,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 /**
- * [STRATEGY: CONSULTANT AUTHORITY & EMPATHY]
- * - Storytelling: เปลี่ยนปัญหาของลูกค้าให้เป็นโอกาสในการกู้คืนชื่อเสียง
- * - Social Proof: เชื่อมโยง LinkedIn Official เพื่อยืนยันตัวตนระดับมืออาชีพ
- * - Identity Linking: ใช้ Anchor Link เพื่อให้ Google จับคู่ Entity ระหว่างเว็บและโซเชียล
+ * [STRATEGY: EXPERT AUTHORITY & TRUST]
+ * - Storytelling: เน้นการแก้ปัญหาชื่อเสียงออนไลน์ (ORM) ให้กับคนไทย
+ * - Expert Team: ชูจุดเด่นเรื่องการทำงานเป็นทีม (Expert 5 ID)
+ * - Brand Identity: เชื่อมโยงทุกองค์ประกอบเข้ากับ JP-VISOUL-DOCS
  */
 
 export default function AboutPage() {
-  const fullName = "นายตัวอย่าง Unlinkth";
-  const linkedinUrl = "https://www.linkedin.com/in/นายตัวอย่าง-unlinkth-4936623a5";
+  const projectTitle = "JP-VISOUL-DOCS";
+  const contactEmail = "jpvisouldocs.example@gmail.com";
 
   return (
     <div className="flex min-h-screen flex-col bg-white font-sans selection:bg-blue-100 dark:bg-black dark:selection:bg-blue-900">
       <Header />
-      
-      <main className="flex-grow flex flex-col items-center px-6 py-16 sm:py-32">
+
+      <main className="flex flex-grow flex-col items-center px-6 py-16 sm:py-32">
         <article className="w-full max-w-3xl space-y-16">
-          
           {/* 🏛️ Header Identity */}
           <header className="space-y-6 text-center sm:text-left">
             <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase dark:bg-blue-950/30">
-              Personal Reputation Architect
+              Online Reputation Management Expert
             </div>
-            <h1 className="text-4xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 sm:text-6xl">
-              เรื่องราวของ <br className="sm:hidden" />
-              <span className="text-blue-600 font-thai tracking-normal">{fullName}</span>
+            <h1 className="text-4xl font-black tracking-tighter text-zinc-900 sm:text-6xl dark:text-zinc-50">
+              เบื้องหลังทีม <br className="sm:hidden" />
+              <span className="font-thai tracking-normal text-blue-600">
+                {projectTitle}
+              </span>
             </h1>
-            
-            {/* LinkedIn Quick Link Badge */}
+
+            {/* Contact Quick Link */}
             <div className="flex justify-center sm:justify-start">
-              <a 
-                href={linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-[#0A66C2] transition-colors"
+              <a
+                href={`mailto:${contactEmail}`}
+                className="flex items-center gap-2 text-xs font-bold text-zinc-400 transition-colors hover:text-blue-600"
               >
-                <Linkedin className="w-4 h-4" />
-                Verified Professional Profile
+                <Mail className="h-4 w-4" />
+                {contactEmail}
               </a>
             </div>
 
-            <p className="text-xl sm:text-2xl text-zinc-500 font-medium leading-relaxed dark:text-zinc-400 pt-2">
-              "เพราะผมเชื่อว่า ทุกคนควรได้รับโอกาสในการ <span className="text-zinc-900 dark:text-zinc-50 underline decoration-blue-500/30">เริ่มต้นใหม่</span> บนโลกออนไลน์"
+            <p className="pt-2 text-xl leading-relaxed font-medium text-zinc-500 sm:text-2xl dark:text-zinc-400">
+              "เราเชื่อว่า ข้อมูลบนโลกออนไลน์ควรสะท้อน{" "}
+              <span className="text-zinc-900 underline decoration-blue-500/30 dark:text-zinc-50">
+                ตัวตนที่แท้จริง
+              </span>{" "}
+              ของคุณในปัจจุบัน"
             </p>
           </header>
 
@@ -58,19 +67,26 @@ export default function AboutPage() {
           <section className="space-y-12 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             <div className="space-y-6 font-medium">
               <p>
-                หลายคนมักเจอปัญหาเดียวกัน คือเวลาใครเอาชื่อเราไปค้นหาใน Google แล้วดันไปเจอเรื่องราวเก่าๆ หรือข้อมูลที่ไม่ได้อัปเดต 
-                ซึ่งบางทีมันก็ไม่ได้บอกตัวตนจริงๆ ของเราในปัจจุบัน
+                ในยุคที่การค้นหาชื่อบน Google คือการ "เช็คประวัติ" ด่านแรก
+                หลายคนต้องเจอกับปัญหาข้อมูลเก่า ข่าวเสีย
+                หรือกระทู้ในอดีตที่คอยรบกวนภาพลักษณ์ปัจจุบันของคุณ
               </p>
               <p>
-                ในยุคที่ <span className="text-zinc-900 dark:text-zinc-50 italic">"ชื่อเสียงดิจิทัล"</span> คือใบเบิกทางที่สำคัญที่สุด ผมจึงอาสาเข้ามาทำหน้าที่จัดการพื้นที่เหล่านี้ให้คุณ
+                ทีม{" "}
+                <span className="font-bold text-zinc-900 italic dark:text-zinc-50">
+                  JP-VISOUL-DOCS
+                </span>{" "}
+                จึงถูกตั้งขึ้นเพื่อจัดการ "ระเบียบข้อมูลตัวตน"
+                โดยใช้ทีมผู้เชี่ยวชาญเฉพาะด้าน 5 สายงาน
+                เพื่อให้คุณมั่นใจได้ว่าชื่อของคุณจะดูดีและน่าเชื่อถือที่สุด
               </p>
             </div>
 
-            {/* Featured Image with Glassmorphism Effect */}
-            <div className="relative aspect-video w-full overflow-hidden rounded-[2.5rem] my-12 border-2 border-zinc-100 dark:border-zinc-800 shadow-2xl">
+            {/* Featured Image - บรรยากาศการทำงานของทีม */}
+            <div className="relative my-12 aspect-video w-full overflow-hidden rounded-[2.5rem] border-2 border-zinc-100 shadow-2xl dark:border-zinc-800">
               <Image
                 src="/images/activity-1.jpg"
-                alt="บรรยากาศการทำงานปรึกษาที่เน้นความเข้าใจลูกค้า"
+                alt="ทีมงาน JP-VISOUL-DOCS ขณะวางแผนการจัดการชื่อเสียงออนไลน์"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 800px"
@@ -78,75 +94,82 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
-            {/* 🛠️ Strategic Mission Grid */}
+            {/* 🛠️ Strategic Mission Grid - บริการที่คนไทยเข้าใจง่าย */}
             <div className="grid gap-8 sm:grid-cols-2">
-              <div className="space-y-4 p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                  <UserCheck className="text-white w-5 h-5" />
+              <div className="space-y-4 rounded-3xl border border-zinc-100 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900/50">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 shadow-lg shadow-blue-500/20">
+                  <UserCheck className="h-5 w-5 text-white" />
                 </div>
-                <h2 className="text-xl font-black text-zinc-900 dark:text-zinc-50 uppercase tracking-tight">คืนภาพลักษณ์</h2>
-                <p className="text-base font-medium">ผมช่วยดันหน้าเว็บทางการของคุณขึ้นไป เพื่อให้ข้อมูลที่ถูกต้องเป็นสิ่งแรกที่ผู้คนจดจำเมื่อค้นหาชื่อคุณ</p>
+                <h2 className="text-xl font-black tracking-tight text-zinc-900 uppercase dark:text-zinc-50">
+                  จัดระเบียบข้อมูล
+                </h2>
+                <p className="text-base font-medium">
+                  จัดการข้อมูลที่ไม่ต้องการ เช่น ข่าวเก่า หรือกระทู้ Pantip
+                  และแทนที่ด้วยข้อมูลใหม่ที่ถูกต้องและเป็นบวก
+                </p>
               </div>
 
-              <div className="space-y-4 p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
-                <div className="w-10 h-10 rounded-xl bg-zinc-900 dark:bg-white flex items-center justify-center">
-                  <ShieldCheck className="text-white dark:text-black w-5 h-5" />
+              <div className="space-y-4 rounded-3xl border border-zinc-100 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900/50">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900 dark:bg-white">
+                  <ShieldCheck className="h-5 w-5 text-white dark:text-black" />
                 </div>
-                <h2 className="text-xl font-black text-zinc-900 dark:text-zinc-50 uppercase tracking-tight">การปกป้อง</h2>
-                <p className="text-base font-medium">ค่อยๆ ลดความสำคัญของสิ่งที่ไม่อยากให้คนเห็นให้จางลงตามธรรมชาติของระบบ Search Engine</p>
+                <h2 className="text-xl font-black tracking-tight text-zinc-900 uppercase dark:text-zinc-50">
+                  การปกป้องตัวตน
+                </h2>
+                <p className="text-base font-medium">
+                  วางโครงสร้าง SEO ระดับสูง
+                  เพื่อให้โปรไฟล์ทางการของคุณติดหน้าแรก Google และสร้าง Trust
+                  ในระยะยาว
+                </p>
               </div>
             </div>
 
             {/* 📝 Professional Commitment */}
-            <div className="relative overflow-hidden bg-zinc-950 dark:bg-zinc-900 p-10 rounded-[3rem] shadow-xl">
+            <div className="relative overflow-hidden rounded-[3rem] bg-zinc-950 p-10 shadow-xl dark:bg-zinc-900">
               <div className="relative z-10 space-y-4 text-white">
-                <h2 className="text-2xl font-black flex items-center gap-3">
-                  <MessageSquare className="text-blue-500 w-6 h-6" />
-                  สัญญาจากผม
+                <h2 className="flex items-center gap-3 text-2xl font-black">
+                  <MessageSquare className="h-6 w-6 text-blue-500" />
+                  คำมั่นสัญญาจากทีมงาน
                 </h2>
-                <p className="text-zinc-300 font-medium leading-relaxed">
-                  ผมไม่ได้มาเพื่อขายระบบที่ซับซ้อน แต่มาเพื่อช่วยแก้ปัญหาให้คุณสบายใจขึ้น 
-                  ทุกงานที่ผมทำ ผมถือว่า <span className="text-white underline decoration-blue-500 underline-offset-4">ความลับของลูกค้าคือความสำคัญอันดับหนึ่ง</span> และผลลัพธ์ที่จับต้องได้คือเป้าหมายเดียวของผมครับ
+                <p className="leading-relaxed font-medium text-zinc-300">
+                  เราไม่ได้ทำแค่การดันอันดับเว็บ แต่เราคือ "พาร์ทเนอร์"
+                  ที่ช่วยดูแลภาพลักษณ์ของคุณ งานของ JP-VISOUL-DOCS
+                  ทุกชิ้นเน้นความ{" "}
+                  <span className="text-white underline decoration-blue-500 underline-offset-4">
+                    ถูกต้อง โปร่งใส และรักษาความลับ
+                  </span>{" "}
+                  ของลูกค้าเป็นอันดับหนึ่งครับ
                 </p>
               </div>
-              <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl" />
+              <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-blue-600/20 blur-3xl" />
             </div>
           </section>
 
           {/* ⚡ Call to Action Footer */}
-          <footer className="pt-10 space-y-8 border-t border-zinc-100 dark:border-zinc-900">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
-              <Link 
-                href="/case-study" 
-                className="group flex items-center gap-2 text-xl font-black text-blue-600 hover:text-zinc-950 dark:hover:text-white transition-all"
+          <footer className="space-y-8 border-t border-zinc-100 pt-10 dark:border-zinc-900">
+            <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
+              <Link
+                href="/case-study"
+                className="group flex items-center gap-2 text-xl font-black text-blue-600 transition-all hover:text-zinc-950 dark:hover:text-white"
               >
-                ดูวิธีการที่ผมช่วยคุณได้ 
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                ดูขั้นตอนการทำงานของเรา
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
               </Link>
-              
+
               <div className="flex items-center gap-6">
-                <a 
-                  href={linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-black uppercase tracking-widest text-zinc-400 hover:text-[#0A66C2] transition-colors"
+                <Link
+                  href="/contact"
+                  className="text-xs font-black tracking-widest text-zinc-400 uppercase transition-colors hover:text-blue-600"
                 >
-                  LinkedIn Profile
-                </a>
-                <Link 
-                  href="/contact" 
-                  className="text-xs font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  Contact Private
+                  เริ่มปรึกษาด่วน
                 </Link>
               </div>
             </div>
-            
-            <p className="text-center sm:text-left text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em]">
-              Data Verified & Linked with Official Identity Infrastructure
+
+            <p className="text-center text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase sm:text-left">
+              Verified by JP-VISOUL-DOCS Identity Infrastructure
             </p>
           </footer>
-
         </article>
       </main>
 

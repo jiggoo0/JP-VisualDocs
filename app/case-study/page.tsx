@@ -4,94 +4,103 @@
 
 import React from "react";
 import Link from "next/link";
-// 1. เพิ่มการนำเข้า Variants เพื่อแก้ปัญหา Type Error
 import { motion, Variants } from "framer-motion";
-import { ShieldCheck, MessageSquare, ArrowUpRight, Lock, Linkedin, Search } from "lucide-react";
+import {
+  ShieldCheck,
+  MessageSquare,
+  ArrowUpRight,
+  Lock,
+  Mail,
+  Search,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Schema from "@/components/Schema";
 
 /**
- * [FIX: TYPE ASSIGNMENT FOR NEXT.JS BUILD]
- * ระบุ Type 'Variants' ให้กับตัวแปร เพื่อป้องกัน Error: 
- * "Type 'string' is not assignable to type 'AnimationGeneratorType'"
+ * [STRATEGY: SEARCH ENGINE RESTORATION - JP-VISOUL-DOCS]
+ * - Clarity: ใช้ภาษาที่คนไทยเข้าใจง่าย แก้ปัญหาเรื่องข่าวเสียและข้อมูลเก่า
+ * - Trust: เน้นย้ำเรื่องความลับของลูกค้าและระบบที่ตรวจสอบได้จริง
  */
+
 const FADE_UP_ANIMATION: Variants = {
-  hidden: { 
-    opacity: 0, 
-    y: 20 
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 25,
+      stiffness: 100,
+    },
   },
-  show: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
-      type: "spring", // กำหนดค่าให้ตรงกับ Literal Type ของ Framer Motion
-      damping: 25, 
-      stiffness: 100 
-    } 
-  }
 };
 
 const PROTOCOLS = [
   {
     step: "01",
-    title: "สร้าง 'บ้านหลังหลัก' ให้ตัวตนของคุณ",
-    description: "เราจะสร้างเว็บไซต์ที่เป็นเหมือนหน้าตาของคุณจริงๆ ขึ้นมาใหม่ โดยใช้เทคโนโลยีที่ทันสมัยที่สุด เพื่อให้ Google มั่นใจว่านี่คือ 'ข้อมูลที่ถูกต้องและเป็นปัจจุบันที่สุด' เมื่อคนกดเข้ามาดู เขาจะได้รับรู้เรื่องราวที่ถูกต้องจากคุณโดยตรงทันที",
-    icon: <ShieldCheck className="w-6 h-6 text-white" />
+    title: "สร้างพื้นที่สีขาวให้ชื่อของคุณ",
+    description:
+      "เราจะสร้างเว็บไซต์ที่มีความน่าเชื่อถือสูง เพื่อเป็นแหล่งข้อมูลหลักที่ถูกต้องที่สุดของคุณ เมื่อระบบของ Google ตรวจพบข้อมูลที่ทันสมัยและเป็นระเบียบ ข้อมูลนี้จะถูกดึงขึ้นมาแสดงผลเป็นอันดับต้นๆ แทนที่ข้อมูลเก่าที่ไม่ต้องการ",
+    icon: <ShieldCheck className="h-6 w-6 text-white" />,
   },
   {
     step: "02",
-    title: "ยืนยันกับ Google ว่าคุณคือ 'ตัวจริง'",
-    description: "เราทำหน้าที่เป็นล่ามคอยสื่อสารกับระบบหลังบ้านของ Google เพื่อบอกว่าคุณคือใครและทำอะไรอยู่ ผลที่ได้คือข้อมูลของคุณจะแสดงผลออกมาอย่างเป็นระเบียบและน่าเชื่อถือ ช่วยลดความสับสนเวลาคนไปเจอข่าวลือที่ไม่อยู่บนพื้นฐานความจริง",
-    icon: <Lock className="w-6 h-6 text-white" />
+    title: "จัดระเบียบและยืนยันตัวตน",
+    description:
+      "ทีมผู้เชี่ยวชาญจะช่วยเชื่อมโยงข้อมูลของคุณเข้ากับระบบสากล เพื่อยืนยันว่าข้อมูลชุดนี้คือ 'ความจริง' ผลที่ได้คือโปรไฟล์ของคุณจะแสดงผลอย่างเป็นมืออาชีพ มีความถูกต้อง และลดความสับสนเวลาคนนำชื่อคุณไปค้นหา",
+    icon: <Lock className="h-6 w-6 text-white" />,
   },
   {
     step: "03",
-    title: "ดันเรื่องดีๆ ขึ้นมา... เบียดเรื่องไม่ดีออกไป",
-    description: "ไม่ใช่แค่ทำเว็บเดียวแล้วจบ แต่เราจะช่วยสร้าง 'พื้นที่สีขาว' รอบๆ ตัวคุณ เพื่อช่วยเบียดลิงก์ที่สร้างความเสียหายให้ตกไปอยู่หน้าลึกๆ จนคนหาไม่เจอ เพื่อให้หน้าแรกของ Google เหลือแต่ข้อมูลที่ส่งเสริมภาพลักษณ์ของคุณจริงๆ",
-    icon: <ArrowUpRight className="w-6 h-6 text-white" />
-  }
+    title: "ดันข้อมูลบวกเพื่อเบียดข้อมูลเสีย",
+    description:
+      "เราใช้เทคนิคการกระจายข้อมูลเชิงบวกไปยังแหล่งต่างๆ เพื่อช่วยเบียดลิงก์ที่ส่งผลกระทบต่อภาพลักษณ์ เช่น ข่าวเสียในอดีต หรือกระทู้ที่ให้ข้อมูลผิดๆ ให้ตกลงไปอยู่หน้าลึกๆ จนคนค้นหาไม่เจอตามธรรมชาติของ Search Engine",
+    icon: <ArrowUpRight className="h-6 w-6 text-white" />,
+  },
 ];
 
 export default function CaseStudy() {
-  const linkedinUrl = "https://www.linkedin.com/in/นายตัวอย่าง-unlinkth-4936623a5";
+  const contactEmail = "jpvisouldocs.example@gmail.com";
 
   return (
-    <div className="min-h-screen bg-white selection:bg-blue-100 dark:bg-black dark:selection:bg-blue-900 font-sans">
+    <div className="min-h-screen bg-white font-sans selection:bg-blue-100 dark:bg-black dark:selection:bg-blue-900">
       <Schema type="HowTo" />
-      
+
       <Header />
-      
-      <main className="max-w-4xl mx-auto px-6 py-24 sm:py-32">
-        
+
+      <main className="mx-auto max-w-4xl px-6 py-24 sm:py-32">
         {/* Hero Section */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="show"
           variants={FADE_UP_ANIMATION}
-          className="text-center mb-24 space-y-8"
+          className="mb-24 space-y-8 text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase dark:bg-blue-950/30">
-            <Search className="w-3 h-3" /> Search Engine Restoration
+            <Search className="h-3 w-3" /> Online Reputation Management
           </div>
-          <h1 className="text-4xl sm:text-7xl font-black text-zinc-900 dark:text-zinc-50 tracking-tighter">
-            คืนความมั่นใจ... <br />
-            ให้ <span className="text-blue-600 font-thai tracking-normal underline decoration-blue-500/20 underline-offset-8">"ชื่อ"</span> ของคุณ
+          <h1 className="text-4xl font-black tracking-tighter text-zinc-900 sm:text-7xl dark:text-zinc-50">
+            คืนความถูกต้อง... <br />
+            ให้{" "}
+            <span className="font-thai tracking-normal text-blue-600 underline decoration-blue-500/20 underline-offset-8">
+              "ชื่อ"
+            </span>{" "}
+            ของคุณ
           </h1>
-          <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed font-medium font-thai">
-            เพราะเวลาคนค้นหาชื่อคุณบน Google เขาควรได้เจอ "ความจริง" ที่คุณอยากบอก 
-            เราจึงช่วยจัดระเบียบข้อมูลใหม่ เพื่อปกป้องชื่อเสียงที่คุณสร้างมาทั้งชีวิต
+          <p className="font-thai mx-auto max-w-2xl text-xl leading-relaxed font-medium text-zinc-500 dark:text-zinc-400">
+            เราเข้าใจว่าชื่อเสียงคือสิ่งที่คุณสร้างมาทั้งชีวิต เมื่อข้อมูลบน
+            Google ไม่ตรงกับความจริง เราจึงเข้ามาช่วยจัดระเบียบข้อมูลใหม่
+            เพื่อปกป้องตัวตนดิจิทัลของคุณให้ดีที่สุด
           </p>
-          
+
           <div className="flex justify-center pt-4">
-            <a 
-              href={linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-[#0A66C2] transition-colors"
+            <a
+              href={`mailto:${contactEmail}`}
+              className="flex items-center gap-2 text-xs font-bold text-zinc-400 transition-colors hover:text-blue-600"
             >
-              <Linkedin className="w-4 h-4" />
-              โดยผู้เชี่ยวชาญที่ได้รับการยืนยันประวัติ
+              <Mail className="h-4 w-4" />
+              ปรึกษาทีมผู้เชี่ยวชาญ JP-VISOUL-DOCS
             </a>
           </div>
         </motion.div>
@@ -105,17 +114,17 @@ export default function CaseStudy() {
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
               variants={FADE_UP_ANIMATION}
-              className="group relative p-8 sm:p-12 rounded-[3.5rem] border border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 transition-all duration-500 hover:bg-white dark:hover:bg-zinc-900 hover:shadow-2xl hover:shadow-blue-500/5"
+              className="group relative rounded-[3.5rem] border border-zinc-100 bg-zinc-50/50 p-8 transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-500/5 sm:p-12 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:bg-zinc-900"
             >
-              <div className="flex flex-col sm:flex-row items-start gap-10">
-                <div className="flex items-center justify-center shrink-0 w-16 h-16 rounded-[2rem] bg-zinc-900 dark:bg-blue-600 shadow-xl text-white font-black text-2xl group-hover:scale-110 transition-transform duration-500">
+              <div className="flex flex-col items-start gap-10 sm:flex-row">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[2rem] bg-zinc-900 text-2xl font-black text-white shadow-xl transition-transform duration-500 group-hover:scale-110 dark:bg-blue-600">
                   {item.step}
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-2xl sm:text-3xl font-black text-zinc-900 dark:text-zinc-50 leading-tight">
+                  <h3 className="text-2xl leading-tight font-black text-zinc-900 sm:text-3xl dark:text-zinc-50">
                     {item.title}
                   </h3>
-                  <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium font-thai">
+                  <p className="font-thai text-lg leading-relaxed font-medium text-zinc-600 dark:text-zinc-400">
                     {item.description}
                   </p>
                 </div>
@@ -125,46 +134,48 @@ export default function CaseStudy() {
         </div>
 
         {/* Final CTA */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={FADE_UP_ANIMATION}
-          className="mt-32 p-10 sm:p-16 bg-zinc-950 text-white rounded-[4.5rem] text-center shadow-3xl relative overflow-hidden dark:bg-zinc-900 border border-white/5"
+          className="shadow-3xl relative mt-32 overflow-hidden rounded-[4.5rem] border border-white/5 bg-zinc-950 p-10 text-center text-white sm:p-16 dark:bg-zinc-900"
         >
           <div className="relative z-10 space-y-10">
             <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] font-black tracking-widest uppercase">
-                <Lock className="w-3 h-3 text-emerald-400" /> 
-                Official Unlinkth Privacy Protocol
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-black tracking-widest uppercase">
+                <Lock className="h-3 w-3 text-emerald-400" />
+                Official Data Protection Protocol
               </div>
             </div>
-            
-            <h2 className="text-4xl sm:text-6xl font-black tracking-tighter leading-tight">
-              คืนความสบายใจ <br className="sm:hidden" /> ให้คุณวันนี้
+
+            <h2 className="text-4xl leading-tight font-black tracking-tighter sm:text-6xl">
+              เริ่มจัดระเบียบข้อมูล <br className="sm:hidden" />{" "}
+              ของคุณตั้งแต่วันนี้
             </h2>
-            
-            <p className="opacity-70 text-zinc-300 font-medium text-lg max-w-xl mx-auto leading-relaxed font-thai">
-              ผมเข้าใจดีว่าชื่อเสียงสำคัญแค่ไหน ทุกอย่างที่คุยกันจะเป็นความลับสูงสุด 
-              และผมจะดูแลงานนี้ให้ดีที่สุดจนกว่าคุณจะพอใจครับ
+
+            <p className="font-thai mx-auto max-w-xl text-lg leading-relaxed font-medium text-zinc-300 opacity-70">
+              เรายึดถือความลับของลูกค้าเป็นอันดับหนึ่ง
+              และพร้อมดูแลภาพลักษณ์ของคุณ
+              อย่างเป็นระบบเพื่อให้ได้ผลลัพธ์ที่จับต้องได้จริง
             </p>
 
             <div className="pt-6">
-              <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center gap-4 bg-blue-600 text-white px-14 py-7 rounded-full font-black text-xl transition-all hover:bg-white hover:text-black hover:scale-105 active:scale-95 shadow-2xl shadow-blue-600/30"
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-4 rounded-full bg-blue-600 px-14 py-7 text-xl font-black text-white shadow-2xl shadow-blue-600/30 transition-all hover:scale-105 hover:bg-white hover:text-black active:scale-95"
               >
-                <MessageSquare className="w-6 h-6" />
-                เริ่มแผนการกู้คืนภาพลักษณ์
+                <MessageSquare className="h-6 w-6" />
+                เริ่มแผนจัดการชื่อเสียงออนไลน์
               </Link>
             </div>
           </div>
-          
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/30 rounded-full blur-[120px] pointer-events-none"></div>
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+          <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-blue-600/30 blur-[120px]"></div>
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-blue-900/20 blur-[120px]"></div>
         </motion.div>
       </main>
-      
+
       <Footer />
     </div>
   );

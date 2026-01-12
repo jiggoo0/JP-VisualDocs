@@ -1,45 +1,48 @@
 # 📁 รายงานโครงสร้างโปรเจกต์
+
 _สร้างเมื่อ: Mon Jan 12 21:21:51 +07 2026_
 
 ## 🌳 Folder Structure
+
 📂 app
-  📄 favicon.ico
-  📄 layout.tsx
-  📄 globals.css
-  📄 page.tsx
-  📂 contact
-    📄 page.tsx
-  📂 about
-    📄 page.tsx
-  📂 case-study
-    📄 page.tsx
-  📄 sitemap.ts
+📄 favicon.ico
+📄 layout.tsx
+📄 globals.css
+📄 page.tsx
+📂 contact
+📄 page.tsx
+📂 about
+📄 page.tsx
+📂 case-study
+📄 page.tsx
+📄 sitemap.ts
 📂 components
-  📄 Header.tsx
-  📄 Footer.tsx
-  📄 Schema.tsx
+📄 Header.tsx
+📄 Footer.tsx
+📄 Schema.tsx
 📂 lib
-  📄 utils.ts
+📄 utils.ts
 📂 scripts
-  📄 clean-project.sh
-  📂 dev
-    📄 backup-project.sh
-    📄 project-summary.sh
-    📄 tree-projects.sh
-  📄 pre-deploy-check.sh
+📄 clean-project.sh
+📂 dev
+📄 backup-project.sh
+📄 project-summary.sh
+📄 tree-projects.sh
+📄 pre-deploy-check.sh
 📂 public
-  📄 file.svg
-  📄 next.svg
-  📄 globe.svg
-  📄 vercel.svg
-  📄 window.svg
-  📂 images
-    📄 profile-photo.jpg
-    📄 activity-1.jpg
-  📄 robots.txt
-  📄 googleb7d3dce206ee0fb0.html
+📄 file.svg
+📄 next.svg
+📄 globe.svg
+📄 vercel.svg
+📄 window.svg
+📂 images
+📄 profile-photo.jpg
+📄 activity-1.jpg
+📄 robots.txt
+📄 googleb7d3dce206ee0fb0.html
 
 ## 📦 ตรวจหา package.json
+
 ```json
 พบ package.json ที่ root ของโปรเจกต์
 
@@ -75,8 +78,11 @@ _สร้างเมื่อ: Mon Jan 12 21:21:51 +07 2026_
 ```
 
 ## 📝 ผลการวิเคราะห์และปัญหาที่พบ
-________
+
+---
+
 ⚠️ ไม่พบไฟล์ pre-deploy-report.md กรุณารัน pre-deploy-check.sh ก่อน
 
 ---
+
 Status: Scanning process completed successfully.

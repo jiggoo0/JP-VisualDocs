@@ -16,32 +16,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://unlinkth-official.vercel.app"),
+  // 🌐 เปลี่ยนฐาน URL เป็นโดเมน Vercel ปัจจุบันของคุณ
+  metadataBase: new URL("https://jp-visual-docs.vercel.app"),
   title: {
-    default: "นายตัวอย่าง Unlinkth | Digital Reputation Architect",
-    template: "%s | นายตัวอย่าง Unlinkth"
+    default:
+      "JPVISOULDOCS Example | จัดระเบียบข้อมูลตัวตนและจัดการชื่อเสียงออนไลน์",
+    template: "%s | JP-VISOUL-DOCS",
   },
-  description: "ที่ปรึกษาด้านภาพลักษณ์ดิจิทัลและการจัดการชื่อเสียงออนไลน์ (ORM) กู้คืนความเชื่อมั่นบนระบบการค้นหา Google ด้วยกลยุทธ์ SEO ระดับสูง",
+  description:
+    "บริการจัดระเบียบข้อมูลตัวตนดิจิทัล จัดการชื่อเสียงออนไลน์ ลบข้อมูลบน Google ลบข่าวเสีย แก้ไขข้อมูลโซเชียล เพื่อภาพลักษณ์ที่ถูกต้องและน่าเชื่อถือที่สุด โดยทีม JP-VISOUL-DOCS",
   keywords: [
-    "นายตัวอย่าง Unlinkth", 
-    "Unlinkth Thailand", 
-    "ที่ปรึกษา ORM", 
-    "จัดการชื่อเสียงดิจิทัล", 
-    "กู้คืนภาพลักษณ์ Google",
-    "SEO Displacement"
+    "JPVISOULDOCS Example",
+    "JP-VISOUL-DOCS",
+    "จัดการชื่อเสียงออนไลน์",
+    "ลบข่าวเสีย",
+    "ลบกระทู้ Pantip",
+    "ลบข้อมูลบน Google",
+    "แก้ไขข้อมูลบนโลกโซเชียล",
+    "จัดระเบียบข้อมูลตัวตน",
+    "ตรวจสอบความถูกต้องของโปรไฟล์",
+    "Digital Identity Verification",
   ],
-  authors: [{ name: "นายตัวอย่าง Unlinkth" }],
+  authors: [{ name: "JP-VISOUL-DOCS Team" }],
   openGraph: {
-    title: "นายตัวอย่าง Unlinkth | Official Identity",
-    description: "คืนความมั่นใจให้ชื่อของคุณบนโลกออนไลน์",
-    url: "https://unlinkth-official.vercel.app",
-    siteName: "Unlinkth Official",
+    title: "JP-VISOUL-DOCS | Official Identity & ORM Services",
+    description:
+      "คืนความถูกต้องให้ชื่อของคุณบนโลกออนไลน์ จัดการข่าวเสียและข้อมูลที่ส่งผลกระทบต่อภาพลักษณ์",
+    url: "https://jp-visual-docs.vercel.app",
+    siteName: "JP-VISOUL-DOCS",
     images: [
       {
         url: "/images/profile-photo.jpg",
         width: 1200,
         height: 630,
-        alt: "นายตัวอย่าง Unlinkth Professional Profile",
+        alt: "JP-VISOUL-DOCS Professional Profile Management",
       },
     ],
     locale: "th_TH",
@@ -53,6 +61,8 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
@@ -64,8 +74,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black`}>
-        {/* 🛠️ ยืนยันตัวตนระดับ Global Entity */}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-white text-slate-900 antialiased dark:bg-black`}
+      >
+        {/* 🛠️ ยืนยันตัวตนระดับ Global Entity ผ่านระบบ Schema ของ JP-VISOUL-DOCS */}
         <Schema type="Person" />
         {children}
       </body>
