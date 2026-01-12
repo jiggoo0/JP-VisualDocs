@@ -1,8 +1,8 @@
-/** @format */
-
 User-agent: *
 Allow: /
 Disallow: /api/
 
-# เชื่อมโยงไปยัง Sitemap ของ JP-VISOUL-DOCS
+# Official Sitemaps for JP-VISOUL-DOCS
+Sitemap: https://jpvisouldocs.website/sitemap.xml
+Sitemap: https://www.jpvisouldocs.online/sitemap.xml
 Sitemap: https://jp-visual-docs.vercel.app/sitemap.xml
